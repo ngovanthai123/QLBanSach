@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eecc4ba0733a4788b6736f0d582e6950" Name="Diagram1">
+        <EntityTypeShape EntityType="ShopOnlineModel.DatHang" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.DatHang_ChiTiet" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.KhachHang" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.LoaiSach" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.NhanVien" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.NhaXuatBan" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.Sach" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="ShopOnlineModel.FK_DatHang_ChiTiet_DatHang" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopOnlineModel.FK_DatHang_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopOnlineModel.FK_DatHang_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopOnlineModel.FK_DatHang_ChiTiet_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopOnlineModel.FK_Sach_LoaiSach" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopOnlineModel.FK_Sach_NhaXuatBan" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

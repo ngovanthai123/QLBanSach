@@ -2,36 +2,58 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Cửa hàng sách</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:aliceblue;">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <img src="~/Images/book-shop.png" width="30" height="30" class="d-inline-block align-top" alt="" />
+                Cửa hàng sách Online
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Bán chạy nhất</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giỏ hàng</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Quản lý
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index", "LoaiSach")">Loại sách</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "NhaXuatBan")">Nhà xuất bản</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "NhanVien")">Nhân viên</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "KhachHang")">Khách hàng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Sach")">Sách</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "DatHang")">Đặt hàng</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "DatHang_ChiTiet")">Đặt hàng chi tiết</a>
+                        </div>
+                    </li>
                 </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Bạn muốn tìm gì?" />
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                </form>
             </div>
-        </div>
+        </nav>
     </div>
-    <div class="container body-content">
+
+    <div class="container-fluid body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; Bản quyền @DateTime.Now.Year bởi Nhóm đồ án_2.</p>
         </footer>
     </div>
 

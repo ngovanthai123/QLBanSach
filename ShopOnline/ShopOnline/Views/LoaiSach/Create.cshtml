@@ -4,7 +4,7 @@
     ViewBag.Title = "Thêm Loại Sách";
 }
 
-<h2>Create</h2>
+<h2>Thêm loại sách</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>LoaiSach</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -25,14 +24,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Thêm mới" class="btn btn-default" />
+                <input type="submit" value="Thêm mới" class="btn btn-info" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay về danh sách", "Index")
 </div>
 
 @section Scripts {

@@ -1,18 +1,17 @@
 ﻿@model ShopOnline.Models.KhachHang
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Cập nhật";
 }
 
-<h2>Edit</h2>
+<h2>Cập nhật</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>KhachHang</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
@@ -57,17 +56,15 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+        
+
+
+        <div class="form-group mb-0">
+            <input type="submit" value="Cập nhật" class="btn btn-primary" /> hoặc @Html.ActionLink("Quay về danh sách", "Index")
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

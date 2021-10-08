@@ -1,13 +1,12 @@
 ﻿@model ShopOnline.Models.KhachHang
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết";
 }
 
-<h2>Details</h2>
+<h2>Chi tiết</h2>
 
 <div>
-    <h4>KhachHang</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -50,9 +49,12 @@
             @Html.DisplayFor(model => model.MatKhau)
         </dd>
 
+      
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Quay về danh dách", "Index")
 </p>
+

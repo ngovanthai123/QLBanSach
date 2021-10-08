@@ -5,65 +5,22 @@
 }
 
 
-<h3>Bạn có chắc muốn xóa chứ?</h3>
-<div>    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.HoVaTen)
-        </dt>
+<div class="card mt-2">
+    <h5 class="card-header" style="background-color: #f4e0fc">@ViewBag.Title</h5>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.HoVaTen)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DienThoai)
-        </dt>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Bạn có muốn xóa nhân viên <strong>@Model.HoVaTen</strong> không?
 
-        <dd>
-            @Html.DisplayFor(model => model.DienThoai)
-        </dd>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDangNhap)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenDangNhap)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MatKhau)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MatKhau)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quyen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Quyen)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-outline-primary" /> |
-            @Html.ActionLink("Quay về danh sách", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Xác nhận xóa" class="btn btn-danger" /> hoặc @Html.ActionLink("Quay về danh sách", "Index")
+            </div>
+        }
+    </div>
 </div>

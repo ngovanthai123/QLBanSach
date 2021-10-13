@@ -395,7 +395,6 @@
     <Content Include="Views\NhaXuatBan\Index.cshtml" />
     <Content Include="Views\Sach\Create.cshtml" />
     <Content Include="Views\Sach\Delete.cshtml" />
-    <Content Include="Views\Sach\Details.cshtml" />
     <Content Include="Views\Sach\Edit.cshtml" />
     <Content Include="Views\Sach\Index.cshtml" />
   </ItemGroup>

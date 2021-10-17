@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShopOnline.Models;
+using ShopOnline.Libs;
 
 namespace ShopOnline.Controllers
 {
@@ -46,10 +47,14 @@ namespace ShopOnline.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,Quyen")] NhanVien nhanVien)
+        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau,Quyen")] NhanVien nhanVien)
         {
             if (ModelState.IsValid)
             {
+                // Mã hóa mật khẩu
+                nhanVien.MatKhau = SHA1.ComputeHash(nhanVien.MatKhau);
+                nhanVien.XacNhanMatKhau = SHA1.ComputeHash(nhanVien.XacNhanMatKhau);
+
                 db.NhanVien.Add(nhanVien);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,14 +83,39 @@ namespace ShopOnline.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,Quyen")] NhanVien nhanVien)
+        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau,Quyen")] NhanVien nhanVien)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nhanVien).State = EntityState.Modified;
+                NhanVien n = db.NhanVien.Find(nhanVien.ID);
+
+                // Giữ nguyên mật khẩu cũ
+                if (nhanVien.MatKhau == null)
+                {
+                    n.ID = nhanVien.ID;
+                    n.HoVaTen = nhanVien.HoVaTen;
+                    n.DienThoai = nhanVien.DienThoai;
+                    n.DiaChi = nhanVien.DiaChi;
+                    n.TenDangNhap = nhanVien.TenDangNhap;
+                    n.XacNhanMatKhau = n.MatKhau;
+                    n.Quyen = nhanVien.Quyen;
+                }
+                else // Cập nhật mật khẩu mới
+                {
+                    n.ID = nhanVien.ID;
+                    n.HoVaTen = nhanVien.HoVaTen;
+                    n.DienThoai = nhanVien.DienThoai;
+                    n.DiaChi = nhanVien.DiaChi;
+                    n.TenDangNhap = nhanVien.TenDangNhap;
+                    n.MatKhau = SHA1.ComputeHash(nhanVien.MatKhau);
+                    n.XacNhanMatKhau = SHA1.ComputeHash(nhanVien.XacNhanMatKhau);
+                    n.Quyen = nhanVien.Quyen;
+                }
+
+                db.Entry(n).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+        }
             return View(nhanVien);
         }
 

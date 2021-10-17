@@ -46,11 +46,11 @@ namespace ShopOnline.Models
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
 
-        /*[Display(Name ="Xác nhận mật khẩu")]
+        [Display(Name ="Xác nhận mật khẩu")]
         [Required(ErrorMessage ="không được bỏ trống!")]
         [Compare("MatKhau",ErrorMessage ="Xác nhận mật khẩu không chính xác!")]
         [DataType(DataType.Password)]
-        public string XacNhanMatKhau { get; set; }*/
+        public string XacNhanMatKhau { get; set; }
 
         [Display(Name ="Quyền hạn")]
         [Required(ErrorMessage ="Chưa chọn quyền hạn")]

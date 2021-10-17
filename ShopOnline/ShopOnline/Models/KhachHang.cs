@@ -46,7 +46,13 @@ namespace ShopOnline.Models
         [Required(ErrorMessage = "Mật khẩu không được để trống!")]
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
-    
+
+        [Display(Name = "Xác nhận mật khẩu")]
+        [Required(ErrorMessage = "Xác nhận mật khẩu không được bỏ trống!")]
+        [Compare("MatKhau", ErrorMessage = "Xác nhận mật khẩu không chính xác!")]
+        [DataType(DataType.Password)]
+        public string XacNhanMatKhau { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatHang> DatHang { get; set; }
     }

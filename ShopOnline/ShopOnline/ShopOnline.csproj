@@ -368,7 +368,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\DatHang\Create.cshtml" />
     <Content Include="Views\DatHang\Delete.cshtml" />
-    <Content Include="Views\DatHang\Details.cshtml" />
     <Content Include="Views\DatHang\Edit.cshtml" />
     <Content Include="Views\DatHang\Index.cshtml" />
     <Content Include="Views\DatHang_ChiTiet\Create.cshtml" />

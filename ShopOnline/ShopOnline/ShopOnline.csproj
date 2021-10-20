@@ -216,6 +216,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\a1.png" />
+    <Content Include="Images\a2.jpg" />
+    <Content Include="Images\a3.jpg" />
+    <Content Include="Images\aa1.jpg" />
+    <Content Include="Images\aa2.jpg" />
     <Content Include="Images\add-1-icon.png" />
     <Content Include="Images\book-shop.png" />
     <Content Include="Images\book-store.png" />

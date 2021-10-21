@@ -227,10 +227,13 @@
     <Content Include="Images\add-1-icon.png" />
     <Content Include="Images\book-shop.png" />
     <Content Include="Images\book-store.png" />
+    <Content Include="Images\Cách-thiết-kế-bìa-sách-ấn-tượng.jpg" />
     <Content Include="Images\gtsachvanhoadaoduchcm.jpg" />
     <Content Include="Images\hphoto2021-04-0915-08-38-1617956394521540570528.jpg" />
     <Content Include="Images\mau-bia-sach-dep.jpg" />
     <Content Include="Images\open-book.png" />
+    <Content Include="Images\thiet_ke_bia_sach.png" />
+    <Content Include="Images\unnamed.jpg" />
     <Content Include="Models\ShopOnline.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ShopOnline.Context.cs</LastGenOutput>

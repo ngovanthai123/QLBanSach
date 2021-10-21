@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ShopOnline.Models;
 
-namespace ShopOnline.Controllers
+namespace ShopOnline.Areas.Admin.Controllers
 {
     public class NhaXuatBanController : Controller
     {

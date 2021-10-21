@@ -9,136 +9,138 @@ using System.Web.Mvc;
 using ShopOnline.Models;
 using ShopOnline.Libs;
 
-namespace ShopOnline.Controllers
+namespace ShopOnline.Areas.Admin.Controllers
 {
-    public class KhachHangController : Controller
+    public class NhanVienController : Controller
     {
         private ShopOnlineEntities db = new ShopOnlineEntities();
 
-        // GET: KhachHang
+        // GET: NhanVien
         public ActionResult Index()
         {
-            return View(db.KhachHang.ToList());
+            return View(db.NhanVien.ToList());
         }
 
-        // GET: KhachHang/Details/5
+        // GET: NhanVien/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHang.Find(id);
-            if (khachHang == null)
+            NhanVien nhanVien = db.NhanVien.Find(id);
+            if (nhanVien == null)
             {
                 return HttpNotFound();
             }
-            return View(khachHang);
+            return View(nhanVien);
         }
 
-        // GET: KhachHang/Create
+        // GET: NhanVien/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: KhachHang/Create
+        // POST: NhanVien/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau")] KhachHang khachHang)
+        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau,Quyen")] NhanVien nhanVien)
         {
             if (ModelState.IsValid)
             {
                 // Mã hóa mật khẩu
-                khachHang.MatKhau = SHA1.ComputeHash(khachHang.MatKhau);
-                khachHang.XacNhanMatKhau = SHA1.ComputeHash(khachHang.XacNhanMatKhau);
+                nhanVien.MatKhau = SHA1.ComputeHash(nhanVien.MatKhau);
+                nhanVien.XacNhanMatKhau = SHA1.ComputeHash(nhanVien.XacNhanMatKhau);
 
-                db.KhachHang.Add(khachHang);
+                db.NhanVien.Add(nhanVien);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(khachHang);
+            return View(nhanVien);
         }
 
-        // GET: KhachHang/Edit/5
+        // GET: NhanVien/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHang.Find(id);
-            if (khachHang == null)
+            NhanVien nhanVien = db.NhanVien.Find(id);
+            if (nhanVien == null)
             {
                 return HttpNotFound();
             }
-            return View(khachHang);
+            return View(nhanVien);
         }
 
-        // POST: KhachHang/Edit/5
+        // POST: NhanVien/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau")] KhachHang khachHang)
+        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau,Quyen")] NhanVien nhanVien)
         {
             if (ModelState.IsValid)
             {
-                KhachHang n = db.KhachHang.Find(khachHang.ID);
+                NhanVien n = db.NhanVien.Find(nhanVien.ID);
 
                 // Giữ nguyên mật khẩu cũ
-                if (khachHang.MatKhau == null)
+                if (nhanVien.MatKhau == null)
                 {
-                    n.ID = khachHang.ID;
-                    n.HoVaTen = khachHang.HoVaTen;
-                    n.DienThoai = khachHang.DienThoai;
-                    n.DiaChi = khachHang.DiaChi;
-                    n.TenDangNhap = khachHang.TenDangNhap;
+                    n.ID = nhanVien.ID;
+                    n.HoVaTen = nhanVien.HoVaTen;
+                    n.DienThoai = nhanVien.DienThoai;
+                    n.DiaChi = nhanVien.DiaChi;
+                    n.TenDangNhap = nhanVien.TenDangNhap;
                     n.XacNhanMatKhau = n.MatKhau;
+                    n.Quyen = nhanVien.Quyen;
                 }
                 else // Cập nhật mật khẩu mới
                 {
-                    n.ID = khachHang.ID;
-                    n.HoVaTen = khachHang.HoVaTen;
-                    n.DienThoai = khachHang.DienThoai;
-                    n.DiaChi = khachHang.DiaChi;
-                    n.TenDangNhap = khachHang.TenDangNhap;
-                    n.MatKhau = SHA1.ComputeHash(khachHang.MatKhau);
-                    n.XacNhanMatKhau = SHA1.ComputeHash(khachHang.XacNhanMatKhau);
+                    n.ID = nhanVien.ID;
+                    n.HoVaTen = nhanVien.HoVaTen;
+                    n.DienThoai = nhanVien.DienThoai;
+                    n.DiaChi = nhanVien.DiaChi;
+                    n.TenDangNhap = nhanVien.TenDangNhap;
+                    n.MatKhau = SHA1.ComputeHash(nhanVien.MatKhau);
+                    n.XacNhanMatKhau = SHA1.ComputeHash(nhanVien.XacNhanMatKhau);
+                    n.Quyen = nhanVien.Quyen;
                 }
 
                 db.Entry(n).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            return View(khachHang);
+        }
+            return View(nhanVien);
         }
 
-        // GET: KhachHang/Delete/5
+        // GET: NhanVien/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHang.Find(id);
-            if (khachHang == null)
+            NhanVien nhanVien = db.NhanVien.Find(id);
+            if (nhanVien == null)
             {
                 return HttpNotFound();
             }
-            return View(khachHang);
+            return View(nhanVien);
         }
 
-        // POST: KhachHang/Delete/5
+        // POST: NhanVien/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            KhachHang khachHang = db.KhachHang.Find(id);
-            db.KhachHang.Remove(khachHang);
+            NhanVien nhanVien = db.NhanVien.Find(id);
+            db.NhanVien.Remove(nhanVien);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

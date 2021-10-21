@@ -9,9 +9,9 @@ using System.Web;
 using System.Web.Mvc;
 using ShopOnline.Models;
 
-namespace ShopOnline.Controllers
+namespace ShopOnline.Areas.Admin.Controllers
 {
-    public class SachController : Controller
+	public class SachController : Controller
     {
         private ShopOnlineEntities db = new ShopOnlineEntities();
 

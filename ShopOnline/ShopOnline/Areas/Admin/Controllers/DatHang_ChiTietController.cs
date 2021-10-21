@@ -8,109 +8,118 @@ using System.Web;
 using System.Web.Mvc;
 using ShopOnline.Models;
 
-namespace ShopOnline.Controllers
+namespace ShopOnline.Areas.Admin.Controllers
 {
-    public class LoaiSachController : Controller
+    public class DatHang_ChiTietController : Controller
     {
         private ShopOnlineEntities db = new ShopOnlineEntities();
 
-        // GET: LoaiSach
+        // GET: DatHang_ChiTiet
         public ActionResult Index()
         {
-            return View(db.LoaiSach.ToList());
+            var datHang_ChiTiet = db.DatHang_ChiTiet.Include(d => d.DatHang).Include(d => d.Sach);
+            return View(datHang_ChiTiet.ToList());
         }
 
-        // GET: LoaiSach/Details/5
+        // GET: DatHang_ChiTiet/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiSach loaiSach = db.LoaiSach.Find(id);
-            if (loaiSach == null)
+            DatHang_ChiTiet datHang_ChiTiet = db.DatHang_ChiTiet.Find(id);
+            if (datHang_ChiTiet == null)
             {
                 return HttpNotFound();
             }
-            return View(loaiSach);
+            return View(datHang_ChiTiet);
         }
 
-        // GET: LoaiSach/Create
+        // GET: DatHang_ChiTiet/Create
         public ActionResult Create()
         {
+            ViewBag.DatHang_ID = new SelectList(db.DatHang, "ID", "DienThoaiGiaoHang");
+            ViewBag.Sach_ID = new SelectList(db.Sach, "ID", "TenSach");
             return View();
         }
 
-        // POST: LoaiSach/Create
+        // POST: DatHang_ChiTiet/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,TenLoai")] LoaiSach loaiSach)
+        public ActionResult Create([Bind(Include = "ID,DatHang_ID,Sach_ID,SoLuong,DonGia")] DatHang_ChiTiet datHang_ChiTiet)
         {
             if (ModelState.IsValid)
             {
-                db.LoaiSach.Add(loaiSach);
+                db.DatHang_ChiTiet.Add(datHang_ChiTiet);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(loaiSach);
+            ViewBag.DatHang_ID = new SelectList(db.DatHang, "ID", "DienThoaiGiaoHang", datHang_ChiTiet.DatHang_ID);
+            ViewBag.Sach_ID = new SelectList(db.Sach, "ID", "TenSach", datHang_ChiTiet.Sach_ID);
+            return View(datHang_ChiTiet);
         }
 
-        // GET: LoaiSach/Edit/5
+        // GET: DatHang_ChiTiet/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiSach loaiSach = db.LoaiSach.Find(id);
-            if (loaiSach == null)
+            DatHang_ChiTiet datHang_ChiTiet = db.DatHang_ChiTiet.Find(id);
+            if (datHang_ChiTiet == null)
             {
                 return HttpNotFound();
             }
-            return View(loaiSach);
+            ViewBag.DatHang_ID = new SelectList(db.DatHang, "ID", "DienThoaiGiaoHang", datHang_ChiTiet.DatHang_ID);
+            ViewBag.Sach_ID = new SelectList(db.Sach, "ID", "TenSach", datHang_ChiTiet.Sach_ID);
+            return View(datHang_ChiTiet);
         }
 
-        // POST: LoaiSach/Edit/5
+        // POST: DatHang_ChiTiet/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,TenLoai")] LoaiSach loaiSach)
+        public ActionResult Edit([Bind(Include = "ID,DatHang_ID,Sach_ID,SoLuong,DonGia")] DatHang_ChiTiet datHang_ChiTiet)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(loaiSach).State = EntityState.Modified;
+                db.Entry(datHang_ChiTiet).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(loaiSach);
+            ViewBag.DatHang_ID = new SelectList(db.DatHang, "ID", "DienThoaiGiaoHang", datHang_ChiTiet.DatHang_ID);
+            ViewBag.Sach_ID = new SelectList(db.Sach, "ID", "TenSach", datHang_ChiTiet.Sach_ID);
+            return View(datHang_ChiTiet);
         }
 
-        // GET: LoaiSach/Delete/5
+        // GET: DatHang_ChiTiet/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiSach loaiSach = db.LoaiSach.Find(id);
-            if (loaiSach == null)
+            DatHang_ChiTiet datHang_ChiTiet = db.DatHang_ChiTiet.Find(id);
+            if (datHang_ChiTiet == null)
             {
                 return HttpNotFound();
             }
-            return View(loaiSach);
+            return View(datHang_ChiTiet);
         }
 
-        // POST: LoaiSach/Delete/5
+        // POST: DatHang_ChiTiet/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LoaiSach loaiSach = db.LoaiSach.Find(id);
-            db.LoaiSach.Remove(loaiSach);
+            DatHang_ChiTiet datHang_ChiTiet = db.DatHang_ChiTiet.Find(id);
+            db.DatHang_ChiTiet.Remove(datHang_ChiTiet);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

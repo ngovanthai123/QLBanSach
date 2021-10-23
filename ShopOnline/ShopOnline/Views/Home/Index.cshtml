@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<ShopOnline.Models.Sach>
+
+@{
     ViewBag.Title = "Trang chủ";
 }
 
@@ -32,4 +34,24 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
+</div>
+<div class="card-body  ">
+    <div class="card-deck">
+        @foreach (var item in Model)
+        {
+
+<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12" style="margin-bottom: 40px; min-width:369px;  ">
+    <div class="card list-books">
+        <img src="~/@item.HinhAnhBia" class="card-img-top" alt="...">
+        <div class="card-body al">
+            <h5 class="card-title text-center">@item.TenSach</h5>
+            <p class="card-text text-center">@String.Format("{0:N0}", item.DonGia) VNĐ</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="@Url.Action("Them", "GioHang", new { masp = item.ID })" class="btn btn-outline-danger"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</a>
+            <a href="@Url.Action("ChiTietSanPham", "Home", new { masp = item.ID })" class="btn btn-outline-primary m-1">Chi tiết</a>
+        </div>
+    </div>
+</div>}
+    </div>
 </div>

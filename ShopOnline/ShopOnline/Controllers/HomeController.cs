@@ -9,10 +9,17 @@ namespace ShopOnline.Controllers
 {
     public class HomeController : Controller
     {
-
+        private ShopOnlineEntities db = new ShopOnlineEntities();
         public ActionResult Index()
         {
-            return View();
+            var t = db.Sach.Where(r => r.SoLuong > 0);
+            return View(t);
+        }
+
+        public ActionResult ChiTiet(int id)
+        {
+            var t = db.Sach.Where(r => r.SoLuong > 0 && r.ID == id).SingleOrDefault();
+            return View(t);
         }
 
         public ActionResult About()

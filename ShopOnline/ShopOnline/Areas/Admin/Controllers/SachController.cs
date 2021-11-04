@@ -12,8 +12,8 @@ using ShopOnline.Models;
 namespace ShopOnline.Areas.Admin.Controllers
 {
 	public class SachController : Controller
-    {
-        private ShopOnlineEntities db = new ShopOnlineEntities();
+	{
+		private ShopOnlineEntities db = new ShopOnlineEntities();
 
 		// GET: Sach
 		public ActionResult Index()

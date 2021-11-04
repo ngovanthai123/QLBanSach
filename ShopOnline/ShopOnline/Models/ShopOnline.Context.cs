@@ -33,5 +33,6 @@ namespace ShopOnline.Models
         public virtual DbSet<NhaXuatBan> NhaXuatBan { get; set; }
         public virtual DbSet<Sach> Sach { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ThuKho> ThuKho { get; set; }
     }
 }

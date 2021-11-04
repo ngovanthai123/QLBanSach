@@ -49,13 +49,13 @@ namespace ShopOnline.Models
         [Display(Name = "Hình ảnh bìa")]
         public string HinhAnhBia { get; set; }
 
-        [Display(Name = "Hình ảnh bìa")]
+        [Display(Name = "Hình ảnh mẫu")]
         public HttpPostedFileBase DuLieuHinhAnhBia { get; set; }
 
         [Display(Name = "Mô tả sách")]
         [DataType(DataType.MultilineText)]
         public string MoTa { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatHang_ChiTiet> DatHang_ChiTiet { get; set; }
         public virtual LoaiSach LoaiSach { get; set; }

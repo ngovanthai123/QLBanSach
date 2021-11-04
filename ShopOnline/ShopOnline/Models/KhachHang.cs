@@ -20,35 +20,39 @@ namespace ShopOnline.Models
         {
             this.DatHang = new HashSet<DatHang>();
         }
-    
-        [Display(Name ="Mã số")]
+
+        [Display(Name = "Mã Khách hàng")]
         public int ID { get; set; }
 
-        [Display(Name = "Họ và tên khách hàng")]
-        [Required(ErrorMessage = "Không được bỏ trống!")]
+        [Display(Name = "Họ và tên")]
+        [Required(ErrorMessage = "Họ và tên không được bỏ trống!")]
         public string HoVaTen { get; set; }
 
-        [Display(Name = "Số điện thoại")]
+        [Display(Name = "Điện thoại")]
         [Required(ErrorMessage = "Không được bỏ trống!")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Số điện thoại không đúng định dạng.")]
+        [DataType(DataType.PhoneNumber)]
         public string DienThoai { get; set; }
 
         [Display(Name = "Địa chỉ")]
-        [Required(ErrorMessage = "Không được bỏ trống!")]
+        [Required(ErrorMessage = "Địa chỉ không được bỏ trống!")]
         public string DiaChi { get; set; }
 
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
         [Display(Name = "Tên đăng nhập")]
-        [Required(ErrorMessage = "Tên đăng nhập không được để trống!")]
+        [Required(ErrorMessage = "Tên đăng nhập không được bỏ trống!")]
         public string TenDangNhap { get; set; }
 
-
         [Display(Name = "Mật khẩu")]
-        [Required(ErrorMessage = "Mật khẩu không được để trống!")]
+        [Required(ErrorMessage = "Mật khẩu không được bỏ trống!")]
+        [StringLength(50, ErrorMessage = "{0} phải từ {2} ký tự đến {1} ký tự", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
 
         [Display(Name = "Xác nhận mật khẩu")]
-        [Required(ErrorMessage = "Xác nhận mật khẩu không được bỏ trống!")]
+        [Required(ErrorMessage = "Mật khẩu không được bỏ trống!")]
         [Compare("MatKhau", ErrorMessage = "Xác nhận mật khẩu không chính xác!")]
         [DataType(DataType.Password)]
         public string XacNhanMatKhau { get; set; }

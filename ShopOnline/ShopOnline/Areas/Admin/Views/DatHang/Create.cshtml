@@ -10,7 +10,6 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
             <div class="form-group">
                 @Html.LabelFor(model => model.NhanVien_ID)
                 @Html.DropDownList("NhanVien_ID", null, "-- Chọn --", htmlAttributes: new { @class = "form-control" })
@@ -65,7 +64,6 @@
         }
     </div>
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

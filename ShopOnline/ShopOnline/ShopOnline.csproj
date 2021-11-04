@@ -152,6 +152,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AdminTK\AdminTKAreaRegistration.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DatHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\DatHang_ChiTietController.cs" />
@@ -163,6 +165,7 @@
     <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaXuatBanController.cs" />
     <Compile Include="Areas\Admin\Controllers\SachController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThuKhoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +211,9 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>ShopOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ThuKho.cs">
+      <DependentUpon>ShopOnline.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,8 +249,8 @@
     <Content Include="Images\unnamed.jpg" />
     <Content Include="Models\ShopOnline.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ShopOnline.Context.cs</LastGenOutput>
       <DependentUpon>ShopOnline.edmx</DependentUpon>
+      <LastGenOutput>ShopOnline.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\ShopOnline.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -281,11 +287,12 @@
     <Content Include="Models\ShopOnline.edmx.diagram">
       <DependentUpon>ShopOnline.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Web.config" />
-    <Content Include="Areas\Admin\Views\Home\About.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Contact.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\web.config" />
+    <Content Include="Areas\AdminTK\Views\Home\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AdminTK\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -376,11 +383,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\KhachHangSignUp.cshtml" />
-    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -392,8 +395,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Areas\Admin\Views\DatHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DatHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DatHang\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DatHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DatHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DatHang_ChiTiet\Create.cshtml" />
@@ -403,31 +409,45 @@
     <Content Include="Areas\Admin\Views\DatHang_ChiTiet\Index.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSach\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSach\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSach\Details.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSach\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSach\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBan\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sach\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ThuKho\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ThuKho\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ThuKho\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ThuKho\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ThuKho\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\Home\KhachHangSignUp.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminTK\Data\" />
+    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Storage\" />
   </ItemGroup>
   <ItemGroup>

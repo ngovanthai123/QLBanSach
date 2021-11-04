@@ -21,9 +21,10 @@ namespace ShopOnline.Models
             TenDangNhap = n.TenDangNhap;
             MatKhau = n.MatKhau;
             XacNhanMatKhau = n.XacNhanMatKhau;
+            Email = n.Email;
         }
 
-        [Display(Name = "Mã KH")]
+        [Display(Name = "Mã khách hàng")]
         public int ID { get; set; }
 
         [Display(Name = "Họ và tên")]
@@ -40,6 +41,9 @@ namespace ShopOnline.Models
         [Required(ErrorMessage = "Địa chỉ không được bỏ trống!")]
         public string DiaChi { get; set; }
 
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
         [Display(Name = "Tên đăng nhập")]
         [Required(ErrorMessage = "Tên đăng nhập không được bỏ trống!")]
         public string TenDangNhap { get; set; }
@@ -52,6 +56,8 @@ namespace ShopOnline.Models
         [Compare("MatKhau", ErrorMessage = "Xác nhận mật khẩu không chính xác!")]
         [DataType(DataType.Password)]
         public string XacNhanMatKhau { get; set; }
+
+        
     }
     public class KhachHangSignUp
     {
@@ -69,6 +75,9 @@ namespace ShopOnline.Models
         [Required(ErrorMessage = "Địa chỉ không được bỏ trống!")]
         public string DiaChi { get; set; }
 
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
         [Display(Name = "Tên đăng nhập")]
         [Required(ErrorMessage = "Tên đăng nhập không được bỏ trống!")]
         public string TenDangNhap { get; set; }
@@ -82,8 +91,8 @@ namespace ShopOnline.Models
         [DataType(DataType.Password)]
         public string XacNhanMatKhau { get; set; }
 
+        
     }
-
     public class KhachHangLogin
     {
         [Display(Name = "Tên đăng nhập")]
@@ -112,4 +121,3 @@ namespace ShopOnline.Models
     }
 
 }
-

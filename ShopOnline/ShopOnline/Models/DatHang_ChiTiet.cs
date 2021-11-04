@@ -15,19 +15,24 @@ namespace ShopOnline.Models
 
     public partial class DatHang_ChiTiet
     {
-        [Display(Name ="Mã số")]
+
+        [Display(Name ="Mã chi tiết")]
         public int ID { get; set; }
 
-       
+        [Display(Name = "Số điện thoại đặt hàng")]
+        [Required(ErrorMessage = "Chưa chọn đơn đặt hàng!")]
         public Nullable<int> DatHang_ID { get; set; }
+
+        [Display(Name = "Sách")]
+        [Required(ErrorMessage = "Chưa chọn sách!")]
         public Nullable<int> Sach_ID { get; set; }
 
-        [Display(Name ="Số lượng")]
-        [Required(ErrorMessage ="không được bỏ trống!")]
+        [Display(Name = "Số lượng")]
+        [Required(ErrorMessage = "Số lượng không được bỏ trống!")]
         public Nullable<short> SoLuong { get; set; }
 
-        [Display(Name ="Đơn giá")]
-        [Required(ErrorMessage ="Không được bỏ trống!")]
+        [Display(Name = "Đơn giá")]
+        [Required(ErrorMessage = "Đơn giá không được bỏ trống!")]
         public Nullable<int> DonGia { get; set; }
     
         public virtual DatHang DatHang { get; set; }

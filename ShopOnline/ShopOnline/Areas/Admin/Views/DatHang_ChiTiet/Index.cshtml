@@ -5,16 +5,11 @@
 }
 
 <div class="card mt-3">
-    <h5 class="card-header" style="background-color: #f4e0fc">@ViewBag.Title</h5>
+    <h5 class="card-header">@ViewBag.Title</h5>
     <div class="card-body">
-        <p>
-            <a class="btn btn-outline-success font-weight-bold" href="@Url.Action("Create")" role="button">
-                <img class="mb-1" src="~/Images/add-1-icon.png" width="20" />
-                Thêm mới
-            </a>
-        </p>
+        <p><a class="btn btn-success" href="@Url.Action("Create")" role="button">Thêm mới</a></p>
         <table class="table table-bordered table-hover table-sm mb-0">
-            <tr class="table-primary">
+            <tr>
                 <th width="5%">#</th>
                 <th>
                     @Html.DisplayNameFor(model => model.SoLuong)
@@ -28,14 +23,13 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Sach.TenSach)
                 </th>
-                
-
-            <th width="10%"></th>
+                <th width="10%"></th>
             </tr>
             @{ int stt = 1; }
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>@stt</td>
                     <td>
                         @Html.DisplayFor(modelItem => item.SoLuong)
                     </td>
@@ -49,7 +43,6 @@
                         @Html.DisplayFor(modelItem => item.Sach.TenSach)
                     </td>
                     <td class="text-center">
-
                         @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
                         @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
                     </td>

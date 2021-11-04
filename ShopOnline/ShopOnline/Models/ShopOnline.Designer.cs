@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\New folder\Đồ Án 2\QLBanSach\ShopOnline\ShopOnline\Models\ShopOnline.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\DOAN_2\QLBanSach\ShopOnline\ShopOnline\Models\ShopOnline.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

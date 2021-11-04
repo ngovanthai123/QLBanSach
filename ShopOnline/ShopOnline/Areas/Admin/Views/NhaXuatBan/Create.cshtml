@@ -10,7 +10,6 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
             <div class="form-group">
                 @Html.LabelFor(model => model.TenNhaXuatBan)
                 @Html.EditorFor(model => model.TenNhaXuatBan, new { htmlAttributes = new { @class = "form-control" } })

@@ -35,6 +35,7 @@
           <Property Name="HoVaTen" Type="nvarchar" MaxLength="100" />
           <Property Name="DienThoai" Type="nvarchar" MaxLength="20" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" />
           <Property Name="MatKhau" Type="nvarchar" MaxLength="255" />
         </EntityType>
@@ -53,6 +54,7 @@
           <Property Name="HoVaTen" Type="nvarchar" MaxLength="100" />
           <Property Name="DienThoai" Type="nvarchar" MaxLength="20" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" />
           <Property Name="MatKhau" Type="nvarchar" MaxLength="255" />
           <Property Name="Quyen" Type="bit" />
@@ -86,6 +88,18 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ThuKho">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoVaTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="20" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <Association Name="FK_DatHang_ChiTiet_DatHang">
           <End Role="DatHang" Type="Self.DatHang" Multiplicity="0..1" />
@@ -168,6 +182,7 @@
           <EntitySet Name="NhaXuatBan" EntityType="Self.NhaXuatBan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sach" EntityType="Self.Sach" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThuKho" EntityType="Self.ThuKho" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DatHang_ChiTiet_DatHang" Association="Self.FK_DatHang_ChiTiet_DatHang">
             <End Role="DatHang" EntitySet="DatHang" />
             <End Role="DatHang_ChiTiet" EntitySet="DatHang_ChiTiet" />
@@ -233,6 +248,7 @@
           <Property Name="HoVaTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DatHang" Relationship="Self.FK_DatHang_KhachHang" FromRole="KhachHang" ToRole="DatHang" />
@@ -253,6 +269,7 @@
           <Property Name="HoVaTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Quyen" Type="Boolean" />
@@ -291,6 +308,18 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ThuKho">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoVaTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_DatHang_ChiTiet_DatHang">
           <End Role="DatHang" Type="Self.DatHang" Multiplicity="0..1" />
@@ -373,6 +402,7 @@
           <EntitySet Name="NhaXuatBan" EntityType="Self.NhaXuatBan" />
           <EntitySet Name="Sach" EntityType="Self.Sach" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="ThuKho" EntityType="Self.ThuKho" />
           <AssociationSet Name="FK_DatHang_ChiTiet_DatHang" Association="Self.FK_DatHang_ChiTiet_DatHang">
             <End Role="DatHang" EntitySet="DatHang" />
             <End Role="DatHang_ChiTiet" EntitySet="DatHang_ChiTiet" />
@@ -435,6 +465,7 @@
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
                 <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
@@ -455,6 +486,7 @@
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
                 <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
                 <ScalarProperty Name="Quyen" ColumnName="Quyen" />
@@ -491,6 +523,19 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThuKho">
+            <EntityTypeMapping TypeName="ShopOnlineModel.ThuKho">
+              <MappingFragment StoreEntitySet="ThuKho">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

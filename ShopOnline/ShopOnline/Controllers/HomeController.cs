@@ -114,7 +114,7 @@ namespace ShopOnline.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult KhachHangSignUp([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau")] KhachHang khachHang)
+        public ActionResult KhachHangSignUp([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,Email,TenDangNhap,MatKhau,XacNhanMatKhau")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {

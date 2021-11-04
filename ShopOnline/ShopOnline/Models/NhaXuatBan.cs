@@ -20,12 +20,12 @@ namespace ShopOnline.Models
         {
             this.Sach = new HashSet<Sach>();
         }
-    
-        [Display(Name ="Mã số")]
+
+        [Display(Name = "Mã nhà xuất bản")]
         public int ID { get; set; }
 
-        [Display(Name ="Tên nhà xuất bản")]
-        [Required(ErrorMessage ="Không được để trống!")]
+        [Display(Name = "Tên nhà xuất bản")]
+        [Required(ErrorMessage = "Tên nhà xuất bản không được bỏ trống!")]
         public string TenNhaXuatBan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

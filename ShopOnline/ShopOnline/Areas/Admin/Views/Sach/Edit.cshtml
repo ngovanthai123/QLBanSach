@@ -1,28 +1,27 @@
 ﻿@model ShopOnline.Models.Sach
-
 @{
-    ViewBag.Title = "Sửa sách";
+    ViewBag.Title = "Thêm sách";
 }
 
 <div class="card mt-3">
     <h5 class="card-header">@ViewBag.Title</h5>
     <div class="card-body">
-        @using (Html.BeginForm("Edit", "Sach", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Create", "Sach", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             @Html.HiddenFor(model => model.ID)
             @Html.HiddenFor(model => model.HinhAnhBia)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.NhaXuatBan_ID)
-                @Html.DropDownList("NhaXuatBan_ID", null, "-- Chọn --", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.NhaXuatBan_ID, "", new { @class = "text-danger" })
-            </div>
-
-            <div class="form-group">
                 @Html.LabelFor(model => model.LoaiSach_ID)
                 @Html.DropDownList("LoaiSach_ID", null, "-- Chọn --", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.LoaiSach_ID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NhaXuatBan_ID)
+                @Html.DropDownList("NhaXuatBan_ID", null, "-- Chọn --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NhaXuatBan_ID, "", new { @class = "text-danger" })
             </div>
 
             <div class="form-group">
@@ -45,8 +44,6 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.DuLieuHinhAnhBia)
-                <span class="d-block mb-2"><img src="~/@Model.HinhAnhBia" width="80" class="img-thumbnail" /></span>
-                <span class="d-block mb-2 mt-2 small text-danger">Bỏ trống nếu không muốn cập nhật ảnh mới!</span>
                 @Html.TextBoxFor(model => model.DuLieuHinhAnhBia, new { @class = "form-control-file", type = "file" })
                 @Html.ValidationMessageFor(model => model.DuLieuHinhAnhBia, "", new { @class = "text-danger" })
                 @if (!String.IsNullOrEmpty(ViewData.ModelState["UploadError"].Errors[0].ErrorMessage))
@@ -62,7 +59,7 @@
             </div>
 
             <div class="form-group mb-0">
-                <input type="submit" value="Cập nhật" class="btn btn-primary" /> hoặc @Html.ActionLink("Quay về danh sách", "Index")
+                <input type="submit" value="Thêm mới" class="btn btn-success" /> hoặc @Html.ActionLink("Quay về danh sách", "Index")
             </div>
         }
     </div>

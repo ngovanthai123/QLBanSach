@@ -20,34 +20,37 @@ namespace ShopOnline.Models
         {
             this.DatHang_ChiTiet = new HashSet<DatHang_ChiTiet>();
         }
-
-        [Display(Name = "Mã đặt hàng")]
+    
+        [Display(Name ="Mã đặt hàng")]
         public int ID { get; set; }
 
-        [Display(Name = "Nhân viên")]
+        [Display(Name ="Nhân viên")]
+        [Required(ErrorMessage ="Chưa chọn nhân viên!")]
         public Nullable<int> NhanVien_ID { get; set; }
 
-        [Display(Name = "Khách hàng")]
+        [Display(Name ="Khách hàng")]
+        [Required(ErrorMessage ="Chưa chọn khách hàng!")]
         public Nullable<int> KhachHang_ID { get; set; }
 
-        [Display(Name = "Điện thoại giao hàng")]
+        [Display(Name ="Điện thoại giao hàng")]
         [Required(ErrorMessage = "Không được bỏ trống!")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Số điện thoại không đúng định dạng.")]
-        [DataType (DataType.PhoneNumber)]
+        [DataType(DataType.PhoneNumber)]
         public string DienThoaiGiaoHang { get; set; }
 
-        [Display(Name = "Địa chỉ giao hàng")]
-        [Required(ErrorMessage = "Địa chỉ giao hàng không được bỏ trống!")]
+        [Display(Name ="Địa chỉ giao hàng")]
+        [Required(ErrorMessage ="Không được bỏ trống!")]
         public string DiaChiGiaoHang { get; set; }
 
         [Display(Name = "Ngày đặt hàng")]
+        [Required(ErrorMessage = "Ngày đặt hàng được bỏ trống!")]
         [DataType(DataType.DateTime)]
         public Nullable<System.DateTime> NgayDatHang { get; set; }
 
         [Display(Name = "Tình trạng đơn hàng")]
+        [Required(ErrorMessage = "Chưa chọn")]
         public Nullable<short> TinhTrang { get; set; }
-
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatHang_ChiTiet> DatHang_ChiTiet { get; set; }
         public virtual KhachHang KhachHang { get; set; }

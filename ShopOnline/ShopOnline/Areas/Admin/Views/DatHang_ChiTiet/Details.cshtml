@@ -1,12 +1,13 @@
 ﻿@model ShopOnline.Models.DatHang_ChiTiet
 
 @{
-    ViewBag.Title = "Chi tiết";
+    ViewBag.Title = "Details";
 }
 
-<h2>Chi tiết</h2>
+<h2>Details</h2>
 
 <div>
+    <h4>DatHang_ChiTiet</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -44,6 +45,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Quay về danh dách", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

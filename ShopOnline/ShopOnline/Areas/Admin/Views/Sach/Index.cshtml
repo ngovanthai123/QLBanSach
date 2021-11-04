@@ -9,7 +9,7 @@
     <div class="card-body">
         <p><a class="btn btn-success" href="@Url.Action("Create")" role="button">Thêm mới</a></p>
         <table class="table table-bordered table-hover table-sm mb-0">
-            <tr class="table-primary">
+            <tr>
                 <th width="5%">#</th>
                 <th>
                     @Html.DisplayNameFor(model => model.TenSach)
@@ -23,6 +23,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.HinhAnhBia)
                 </th>
+               
                 <th>
                     @Html.DisplayNameFor(model => model.LoaiSach.TenLoai)
                 </th>
@@ -34,31 +35,32 @@
             @{ int stt = 1; }
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@stt</td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TenSach)
-                    </td>
-                    <td class="text-right">
-                        @Html.DisplayFor(modelItem => item.DonGia)
-                    </td>
-                    <td class="text-right">
-                        @Html.DisplayFor(modelItem => item.SoLuong)
-                    </td>
-                    <td class="text-center">
-                        <img src="~/@item.HinhAnhBia" width="60" class="img-thumbnail" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LoaiSach.TenLoai)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNhaXuatBan)
-                    </td>
-                    <td class="text-center">
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
-                    </td>
-                </tr>
+        <tr>
+            <td>@stt</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td class="text-center">
+                <img src="~/@item.HinhAnhBia" width="60" class="img-thumbnail" />
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiSach.TenLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNhaXuatBan)
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+            </td>
+        </tr>
                 stt++;
             }
         </table>

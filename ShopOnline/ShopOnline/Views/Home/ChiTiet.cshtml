@@ -1,0 +1,20 @@
+﻿@model ShopOnline.Models.Sach
+@{
+    ViewBag.Title = "Chi Tiết Sản Phẩm";
+}
+
+<div class="card mt-3">
+    <h5 class="card-header" style="background-color: #f4e0fc">@ViewBag.Title</h5>
+    <div class="card-body ">
+        <div class="row ">
+            <img src="~/@Model.HinhAnhBia" class="card-img-top col-4" alt="...">
+            <div class="card-body col-6 text-justify " style="font-size:30px">
+                <p class="card-title font-weight-bold ">@Model.TenSach</p>
+                <p class="card-text text-danger "><i>Đơn giá:</i> @Model.DonGia đồng</p>
+                <p class="card-text "><i>Số lượng:</i> @Model.SoLuong</p>
+                <p class="card-text "><i>Nhà xuất bản:</i> @Model.NhaXuatBan.TenNhaXuatBan</p>
+                <p class="card-text "><i>Mô tả:</i> @Model.MoTa</p>
+            </div>
+        </div>
+    </div>
+</div>

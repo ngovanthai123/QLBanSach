@@ -1,0 +1,77 @@
+﻿@model ShopOnline.Models.DatHang
+@{
+    ViewBag.Title = "Thanh toán";
+    var cart = (List<ShopOnline.Models.SanPhamTrongGio>)Session["cart"];
+}
+
+<div class="card mt-3">
+    <h5 class="card-header">Thông tin thanh toán</h5>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DienThoaiGiaoHang)
+                @Html.EditorFor(model => model.DienThoaiGiaoHang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DienThoaiGiaoHang, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DiaChiGiaoHang)
+                @Html.EditorFor(model => model.DiaChiGiaoHang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChiGiaoHang, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-0">
+                <button type="submit" class="btn btn-danger"><i class="fal fa-check-circle"></i> Thanh toán</button> hoặc @Html.ActionLink("Quay về trang chủ", "Index", "Home")
+            </div>
+        }
+        
+    </div>
+</div>
+
+<div class="card mt-3">
+    <h5 class="card-header">Thông tin sản phẩm đặt mua</h5>
+    <div class="card-body">
+        <table class="table table-bordered table-hover table-sm">
+            <tr>
+                <th width="5%">#</th>
+                <th width="10%">Hình ảnh</th>
+                <th>Sản phẩm</th>
+                <th width="10%">Số lượng</th>
+                <th width="15%">Đơn giá</th>
+                <th width="15%">Thành tiền</th>
+            </tr>
+            @{ int stt = 1; }
+            @foreach (var item in cart)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td class="text-center"><img src="~/@item.sAch.HinhAnhBia" width="50" /></td>
+                    <td>@item.sAch.TenSach</td>
+                    <td>@item.soLuongTrongGio</td>
+                    <td class="text-right">@item.sAch.DonGia.Value.ToString("N0")<sup>đ</sup></td>
+                    <td class="text-right">@((item.soLuongTrongGio * item.sAch.DonGia).Value.ToString("N0"))<sup>VNĐ</sup></td>
+                </tr>
+                stt++;
+            }
+            <tr>
+                <td colspan="5">Tổng thành tiền</td>
+                <td class="text-right font-weight-bold text-primary">
+                    @{
+                        var total = cart.Sum(item => item.sAch.DonGia * item.soLuongTrongGio);
+                    }
+                    @total.Value.ToString("N0")<sup>VNĐ</sup>
+                </td>
+            </tr>
+        </table>
+        <p class="mb-0">
+            <a href="@Url.Action("Index", "GioHang")" class="btn btn-primary"><i class="fal fa-edit"></i> Cập nhật sản phẩm</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

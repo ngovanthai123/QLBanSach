@@ -214,6 +214,7 @@
     <Compile Include="Models\ThuKho.cs">
       <DependentUpon>ShopOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ThuKhoModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +294,8 @@
     <Content Include="Areas\AdminTK\Views\Home\Index.cshtml" />
     <Content Include="Areas\AdminTK\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\AdminTK\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Home\ChangePassword.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Home\LoginTK.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -443,6 +446,9 @@
     <Content Include="Views\Home\KhachHangSignUp.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Home\MyOders.cshtml" />
+    <Content Include="Views\Home\ChiTiet.cshtml" />
+    <Content Include="Views\Home\ThanhToan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

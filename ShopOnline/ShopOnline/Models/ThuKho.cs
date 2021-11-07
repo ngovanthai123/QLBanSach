@@ -22,7 +22,7 @@ namespace ShopOnline.Models
         [Required(ErrorMessage = "Họ và tên không được bỏ trống!")]
         public string HoVaTen { get; set; }
 
-        [Display(Name = "Điện thoại giao hàng")]
+        [Display(Name = "Điện thoại")]
         [Required(ErrorMessage = "Không được bỏ trống!")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Số điện thoại không đúng định dạng.")]
         [DataType(DataType.PhoneNumber)]
@@ -42,8 +42,14 @@ namespace ShopOnline.Models
 
         [Display(Name = "Mật khẩu")]
         [Required(ErrorMessage = "Mật khẩu không được bỏ trống!")]
-        [StringLength(50, ErrorMessage = "{0} phải từ {2} ký tự đến {1}", MinimumLength = 6)]
+        [StringLength(50, ErrorMessage = "{0} phải từ {2} ký tự đến {1} ký tự", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
+
+        [Display(Name = "Xách nhận mật khẩu")]
+        [Required(ErrorMessage = "Xác nhận mật khẩu không được bỏ trống!")]
+        [Compare("MatKhau", ErrorMessage = "Xác nhận mật khẩu không chính xác!")]
+        [DataType(DataType.Password)]
+        public string XacNhanMatKhau { get; set; }
     }
 }

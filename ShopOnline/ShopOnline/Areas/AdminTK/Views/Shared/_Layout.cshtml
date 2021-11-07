@@ -21,25 +21,24 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Mua nhiều nhất</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "GioHang")">Giỏ hàng</a>
-                    </li>
-                    @if (Session["MaKhachHang"] == null)
+                    
+                    @if (Session["MaThuKho"] == null)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Login", "Home")">Đăng nhập</a>
+                            <a class="nav-link" href="@Url.Action("LoginTK","Home")">Đăng nhập</a>
                         </li>
                     }
                     else
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @Session["HoTenKhachHang"].ToString()
+                                @Session["HoTenThuKho"].ToString()
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="@Url.Action("MyOrders", "KhachHang")">Đơn hàng của tôi</a>
-                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "KhachHang")">Đổi mật khẩu</a>
-                                <a class="dropdown-item" href="@Url.Action("Logout", "KhachHang")">Đăng xuất</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Sach")">Sách</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "LoaiSach")">Loại sách</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "NhaXuatBan")">Nhà xuất bản</a>
+                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Home")">Đổi mật khẩu</a>
                             </div>
                         </li>
                     }

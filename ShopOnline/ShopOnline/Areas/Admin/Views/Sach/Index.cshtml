@@ -23,7 +23,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.HinhAnhBia)
                 </th>
-               
+
                 <th>
                     @Html.DisplayNameFor(model => model.LoaiSach.TenLoai)
                 </th>
@@ -35,32 +35,32 @@
             @{ int stt = 1; }
             @foreach (var item in Model)
             {
-        <tr>
-            <td>@stt</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenSach)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DonGia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoLuong)
-            </td>
-            <td class="text-center">
-                <img src="~/@item.HinhAnhBia" width="60" class="img-thumbnail" />
-            </td>
+                <tr>
+                    <td>@stt</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenSach)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonGia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuong)
+                    </td>
+                    <td class="text-center">
+                        <img src="~/@item.HinhAnhBia" width="60" class="img-thumbnail" />
+                    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.LoaiSach.TenLoai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNhaXuatBan)
-            </td>
-            <td class="text-center">
-                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
-            </td>
-        </tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiSach.TenLoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNhaXuatBan)
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
                 stt++;
             }
         </table>

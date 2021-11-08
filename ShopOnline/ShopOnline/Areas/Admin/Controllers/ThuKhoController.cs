@@ -36,7 +36,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau")] ThuKho thuKho)
+        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,Email,TenDangNhap,MatKhau,XacNhanMatKhau")] ThuKho thuKho)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,TenDangNhap,MatKhau,XacNhanMatKhau")] ThuKhoEdit thuKho)
+        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,Email,TenDangNhap,MatKhau,XacNhanMatKhau")] ThuKhoEdit thuKho)
         {
             if (ModelState.IsValid)
             {
@@ -83,6 +83,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                     n.HoVaTen = thuKho.HoVaTen;
                     n.DienThoai = thuKho.DienThoai;
                     n.DiaChi = thuKho.DiaChi;
+                    n.Email = thuKho.Email;
                     n.TenDangNhap = thuKho.TenDangNhap;
                     n.XacNhanMatKhau = n.MatKhau;
                 }
@@ -92,6 +93,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                     n.HoVaTen = thuKho.HoVaTen;
                     n.DienThoai = thuKho.DienThoai;
                     n.DiaChi = thuKho.DiaChi;
+                    n.Email = thuKho.Email;
                     n.TenDangNhap = thuKho.TenDangNhap;
                     n.MatKhau = SHA1.ComputeHash(thuKho.MatKhau);
                     n.XacNhanMatKhau = SHA1.ComputeHash(thuKho.XacNhanMatKhau);

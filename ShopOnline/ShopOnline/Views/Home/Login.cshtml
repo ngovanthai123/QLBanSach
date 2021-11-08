@@ -5,12 +5,11 @@
 }
 
 <div class="card mt-3">
-    <h5 class="card-header" style="background-color: #f4e0fc">@ViewBag.Title</h5>
+    <h5 class="card-header">@ViewBag.Title</h5>
     <div class="card-body">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
 
             if (!String.IsNullOrEmpty(ViewData.ModelState["LoginError"].Errors[0].ErrorMessage))
             {
@@ -22,20 +21,52 @@
                 </div>
             }
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.TenDangNhap)
-                @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.MatKhau)
-                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
-            </div>
 
-            <div class="form-group mb-0">
-                <input type="submit" value="Đăng nhập" class="btn btn-success" /> hoặc @Html.ActionLink("Tạo tài khoản", "KhachHangSignUp", "Home")
+
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
+                    <!-- Icon -->
+                    <div class="fadeIn first">
+                        <img src="~/Images/account (1).png" id="icon" alt="User Icon" />
+                    </div>
+
+                    <!-- Login Form -->
+                    <form>
+                        <div class="form-group">
+                            <div class="login">
+                                <div class="Login-name">
+                                    @Html.LabelFor(model => model.TenDangNhap)
+                                </div>
+                                <div class="Login-password">
+                                    @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <div class="login">
+                                <div class="Login-name" style="margin-left: -20px">
+                                    @Html.LabelFor(model => model.MatKhau)
+                                </div>
+                                <div class="Login-password">
+                                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                        </div>
+                        <input type="submit" value="Đăng nhập" class="btn btn-success" /> hoặc @Html.ActionLink("Tạo tài khoản", "DangKy", "Home")
+                        <br />
+                        @Html.ActionLink("Quay về trang chủ", "Index", "Home")
+                    </form>
+
+                    <!-- Remind Passowrd -->
+                    <div id="formFooter">
+                        <a class="underlineHover" href="#">Forgot Password?</a>
+                    </div>
+
+                </div>
             </div>
         }
     </div>
@@ -44,3 +75,97 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 20px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+@*        -ms-transition: all 0.3s ease-in-out;
+*@        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+        input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+            background-color: #39ace7;
+        }
+
+        input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
+            -moz-transform: scale(0.95);
+            -webkit-transform: scale(0.95);
+            -o-transform: scale(0.95);
+            -ms-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+
+    input[type=text] {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+@*        -ms-transition: all 0.5s ease-in-out;
+*@        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=password] {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+@*        -ms-transition: all 0.5s ease-in-out;
+*@        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=text]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=password]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+   @* input[type=text]:placeholder {
+        color: #cccccc;
+    }
+
+    input[type=password]:placeholder {
+        color: #cccccc;
+    }*@
+</style>

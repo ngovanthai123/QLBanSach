@@ -15,11 +15,11 @@ namespace ShopOnline.Areas.AdminTK
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                name: "AdminTK_default",
-               url: "AdminTK/{controller}/{action}/{id}",
-                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "ShopOnline.Areas.AdminTK.Controllers" }
-            );
+                 name: "AdminTK_default",
+                url: "AdminTK/{controller}/{action}/{id}",
+                  defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                 namespaces: new[] { "ShopOnline.Areas.AdminTK.Controllers" }
+             );
         }
     }
 }

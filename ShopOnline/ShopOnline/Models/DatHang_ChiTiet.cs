@@ -15,8 +15,7 @@ namespace ShopOnline.Models
 
     public partial class DatHang_ChiTiet
     {
-
-        [Display(Name ="Mã chi tiết")]
+        [Display(Name = "Mã chi tiết")]
         public int ID { get; set; }
 
         [Display(Name = "Số điện thoại đặt hàng")]
@@ -34,8 +33,9 @@ namespace ShopOnline.Models
         [Display(Name = "Đơn giá")]
         [Required(ErrorMessage = "Đơn giá không được bỏ trống!")]
         public Nullable<int> DonGia { get; set; }
-    
+
         public virtual DatHang DatHang { get; set; }
         public virtual Sach Sach { get; set; }
     }
 }
+

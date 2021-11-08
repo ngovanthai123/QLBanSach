@@ -27,7 +27,7 @@ namespace ShopOnline.Models
         [Display(Name = "Tên nhà xuất bản")]
         [Required(ErrorMessage = "Tên nhà xuất bản không được bỏ trống!")]
         public string TenNhaXuatBan { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sach> Sach { get; set; }
     }

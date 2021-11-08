@@ -32,7 +32,6 @@ namespace ShopOnline.Models
         [Required(ErrorMessage = "Địa chỉ không được bỏ trống!")]
         public string DiaChi { get; set; }
 
-        [Required(ErrorMessage = "Không được bỏ trống!")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 

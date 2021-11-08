@@ -57,7 +57,7 @@ namespace ShopOnline.Models
         [DataType(DataType.Password)]
         public string XacNhanMatKhau { get; set; }
 
-        
+
     }
     public class KhachHangSignUp
     {
@@ -91,7 +91,7 @@ namespace ShopOnline.Models
         [DataType(DataType.Password)]
         public string XacNhanMatKhau { get; set; }
 
-        
+
     }
     public class KhachHangLogin
     {

@@ -1,20 +1,45 @@
-﻿@model ShopOnline.Models.Sach
+﻿@model IEnumerable<ShopOnline.Models.SachModel>
+
 @{
-    ViewBag.Title = "Chi Tiết Sản Phẩm";
+    ViewBag.Title = "Thông tin sản phẩm";
 }
 
 <div class="card mt-3">
-    <h5 class="card-header" style="background-color: #f4e0fc">@ViewBag.Title</h5>
-    <div class="card-body ">
-        <div class="row ">
-            <img src="~/@Model.HinhAnhBia" class="card-img-top col-4" alt="...">
-            <div class="card-body col-6 text-justify " style="font-size:30px">
-                <p class="card-title font-weight-bold ">@Model.TenSach</p>
-                <p class="card-text text-danger "><i>Đơn giá:</i> @Model.DonGia đồng</p>
-                <p class="card-text "><i>Số lượng:</i> @Model.SoLuong</p>
-                <p class="card-text "><i>Nhà xuất bản:</i> @Model.NhaXuatBan.TenNhaXuatBan</p>
-                <p class="card-text "><i>Mô tả:</i> @Model.MoTa</p>
+    <h5 class="card-header">@ViewBag.Title</h5>
+    <div class="card-body" style="margin: auto;    background-color: #fff0;">
+
+        @foreach (var item in Model)
+        {
+            <div>
+                <div>
+                    <h3 class="ml-4">   @item.TenSach</h3>
+                </div>
+                <div style="display: inline-flex">
+                    <div>
+                        <img src="~/@item.HinhAnhBia" width="300" style="border: solid #e8e8e8 3px; border-radius:10px" />
+                    </div>
+                    <div class="about" style="margin-left: 50px">
+                        <h5 style=" width: 200px; line-height: 2">
+                            Tên hãng sản xuất :  <br />
+                            @item.NhaXuatBan.TenNhaXuatBan
+                        </h5>
+                    </div>
+
+                    <div class="about">
+                        <h5 style=" width: 400px; line-height: 2">
+                            Chi tiết sản phẩm :  <br />
+                            @item.MoTa
+                        </h5>
+                    </div>
+                </div>
             </div>
-        </div>
+        }
+
     </div>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

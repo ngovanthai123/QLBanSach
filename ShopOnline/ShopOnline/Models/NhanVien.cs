@@ -48,14 +48,14 @@ namespace ShopOnline.Models
 
         [Display(Name = "Mật khẩu")]
         [Required(ErrorMessage = "Mật khẩu không được bỏ trống!")]
-        [StringLength(50, ErrorMessage ="{0} phải từ {2} ký tự đến {1}",MinimumLength =6)]
+        [StringLength(50, ErrorMessage = "{0} phải từ {2} ký tự đến {1}", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
 
         [Display(Name = "Quyền hạn")]
         [Required(ErrorMessage = "Chưa chọn quyền hạn!")]
         public Nullable<bool> Quyen { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatHang> DatHang { get; set; }
     }

@@ -27,7 +27,7 @@ namespace ShopOnline.Models
         [Display(Name = "Tên loại")]
         [Required(ErrorMessage = "Tên loại không được bỏ trống!")]
         public string TenLoai { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sach> Sach { get; set; }
     }

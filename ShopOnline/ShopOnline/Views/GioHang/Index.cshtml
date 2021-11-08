@@ -1,32 +1,32 @@
 ﻿@model IEnumerable<ShopOnline.Models.Sach>
+
 @{
     ViewBag.Title = "Giỏ hàng";
     var cart = (List<ShopOnline.Models.SanPhamTrongGio>)Session["cart"];
 }
 
-
 <div class="card mt-3">
     <h5 class="card-header">@ViewBag.Title</h5>
     <div class="card-body">
-        @if (Session["MaKhachHang"] == null)
+        @if (cart == null || cart.Count() < 0)
         {
-            <span>Vui lòng đăng nhập</span>
+
         }
-        else
-        if (cart == null || cart.Count <= 0)
-        {
-            <span>Giỏ hàng chưa có sản phẩm!</span>
-        }
+
         else
         {
+            if (cart.Count() < 0)
+            {
+                <span>Hãy thêm sản phẩm</span>
+            }
             <table class="table table-bordered table-hover table-sm">
                 <tr>
-                    <th width="5%">#</th>
-                    <th width="10%">Hình ảnh</th>
+                    <th width="5%">STT</th>
+                    <th>Hình ảnh</th>
                     <th>Sản phẩm</th>
-                    <th width="10%">Số lượng</th>
-                    <th width="15%">Đơn giá</th>
-                    <th width="15%">Thành tiền</th>
+                    <th width="20%">Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
                     <th width="5%"></th>
                 </tr>
                 @{ int stt = 1; }
@@ -34,43 +34,44 @@
                 {
                     <tr>
                         <td>@stt</td>
-                        <td class="text-center"><img src="~/@item.sAch.HinhAnhBia" width="50" /></td>
+                        <td><img src="~/@item.sAch.HinhAnhBia" width="50" /></td>
                         <td>@item.sAch.TenSach</td>
                         <td>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><a href="@Url.Action("CapNhatGiam", "GioHang", new { maSP = item.sAch.ID })"><i class="fas fa-minus"></i></a></span>
+                                    <span class="input-group-text"><a href="@Url.Action("CapNhatGiam", "GioHang", new { masp = item.sAch.ID })"><i class="fas fa-minus"></i></a></span>
                                 </div>
                                 <input type="text" class="form-control text-center" value="@item.soLuongTrongGio" readonly />
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><a href="@Url.Action("CapNhatTang", "GioHang", new { maSP = item.sAch.ID })"><i class="fas fa-plus"></i></a></span>
+                                    <span class="input-group-text"><a href="@Url.Action("CapNhatTang", "GioHang", new { masp = item.sAch.ID })"><i class="fas fa-plus"></i></a></span>
                                 </div>
                             </div>
                         </td>
-                        <td class="text-right">@item.sAch.DonGia.Value.ToString("N0")<sup>đ</sup></td>
-                        <td class="text-right">@((item.soLuongTrongGio * item.sAch.DonGia).Value.ToString("N0"))<sup>đ</sup></td>
-                        <td class="text-center"><a href="@Url.Action("XoaKhoiGio", "GioHang", new { maSP = item.sAch.ID })">Xóa</a></td>
+                        <td class="text-right">@item.sAch.DonGia</td>
+                        <td class="text-right">@(item.soLuongTrongGio * item.sAch.DonGia)</td>
+                        <td class="text-center"><a href="@Url.Action("Xoa", "GioHang", new { masp = item.sAch.ID })">Xóa</a></td>
                     </tr>
                     stt++;
                 }
+
                 <tr>
                     <td colspan="5">Tổng thành tiền</td>
                     <td class="text-right font-weight-bold text-primary">
                         @{
                             var total = cart.Sum(item => item.sAch.DonGia * item.soLuongTrongGio);
                         }
-                        @total.Value.ToString("N0")<sup>VNĐ</sup>
+                        @total
                     </td>
                     <td></td>
                 </tr>
             </table>
-            <p class="mb-0">
-                <a href="@Url.Action("Index", "Home")" class="btn btn-primary"><i class="fal fa-cart-plus"></i> Tiếp tục mua hàng</a>
-                <a href="@Url.Action("ThanhToan", "Home")" class="btn btn-success"><i class="fal fa-credit-card"></i> Thanh toán</a>
+
+            <p>
+                <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Tiếp tục mua hàng</a>
+                <div>
+                    <a href="@Url.Action("XacNhanMuaHang", "Home")" class="btn btn-success">Thanh toán</a>
+                </div>
             </p>
         }
     </div>
 </div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

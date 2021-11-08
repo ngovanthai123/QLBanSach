@@ -13,17 +13,17 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img style="height: 350px " class=" d-block w-100" src="~/Images/aa2.jpg" alt="First slide">
+            <img style="height: 350px " class=" d-block w-100" src="~/Images/nha-gia-kim.jpg" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
                 <p></p>
             </div>
         </div>
         <div class="carousel-item">
-            <img style="height: 400px " class="d-block w-100" src="~/Images/mau-bia-sach-dep.jpg" alt="Second slide">
+            <img style="height: 400px " class="d-block w-100" src="~/Images/thiet_ke_bia_sach.png" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img style="height: 400px " class="d-block w-100" src="~/Images/hphoto2021-04-0915-08-38-1617956394521540570528.jpg" alt="Third slide">
+            <img style="height: 400px " class="d-block w-100" src="~/Images/Cách-thiết-kế-bìa-sách-ấn-tượng.jpg" alt="Third slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -47,7 +47,7 @@
                         <h5 class="card-title">@item.TenSach</h5>
                         <p class="card-text">@item.DonGia đồng</p>
                     </div>
-                    <div class="card-footer m-auto bg-white">
+                    <div class="card-footer m-auto bg-white" style="text-align:center">
                         <a href="@Url.Action("ThemVaoGio", "GioHang", new { maSP = item.ID })" class="btn btn-danger fas fa-cart-plus"> Giỏ hàng</a>
                         <a href="@Url.Action("ChiTiet", "Home", new { ID = item.ID })" class="btn btn-info fas fa-eye"> Chi tiết</a>
                     </div>

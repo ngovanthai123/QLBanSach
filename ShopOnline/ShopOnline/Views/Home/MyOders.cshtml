@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ShopOnline.Models.DonHangCuaToi>
+
+@{
+    ViewBag.Title = "Đơn hàng của tôi";
+}
+
+
+
+<div class="card mt-3">
+    <h5 class="card-header" style="background-color: #f4e0fc">@ViewBag.Title</h5>
+    <div class="card-body">
+        <table class="table table-bordered table-hover table-sm">
+            <tr>
+                <th width="5%">STT</th>
+                <th>Hình ảnh</th>
+                <th>Sách</th>
+                <th width="10%">Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+                <th>Thời gian đặt hàng</th>
+                <th>Tình trạng</th>
+            </tr>
+
+            @{int stt = 1;}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>#</td>
+                    <td><img src="~/@item.HinhAnhBia" width="50" /></td>
+                    <td>@item.TenSach</td>
+                    <td>@item.SoLuong</td>
+                    <td class="card-text text-center">@String.Format("{0:N0}", item.DonGia)</td>
+                    <td class="text-right">@(item.SoLuong * item.DonGia)</td>
+                    <td>@item.NgayDatHang</td>
+                    <td>
+                        @if (item.TinhTrang == 0)
+                        {
+                            <span>Đơn hàng mới</span>
+                        }
+                        else if (item.TinhTrang == 1)
+                        {
+                            <span>Đang xác nhận</span>
+                        }
+                        else if (item.TinhTrang == 2)
+                        {
+                            <span>Đã hủy</span>
+                        }
+                        else if (item.TinhTrang == 3)
+                        {
+                            <span>Đang đóng gói</span>
+                        }
+                        else if (item.TinhTrang == 4)
+                        {
+                            <span>Đang gởi vận chuyển</span>
+                        }
+                        else if (item.TinhTrang == 5)
+                        {
+                            <span>Đang chuyển</span>
+                        }
+                        else if (item.TinhTrang == 6)
+                        {
+                            <span>Thất bại</span>
+                        }
+                        else if (item.TinhTrang == 7)
+                        {
+                            <span>Đang chuyển hoàn</span>
+                        }
+                        else if (item.TinhTrang == 8)
+                        {
+                            <span>Đã chuyển hoàn</span>
+                        }
+                        else
+                        {
+                            <span>Thành công</span>
+                        }
+                    </td>
+                </tr>
+                stt++;
+            }
+
+        </table>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

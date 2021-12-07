@@ -2,10 +2,11 @@
 
 @{
     ViewBag.Title = "Đăng nhập";
+    Layout = null;
 }
 
 <div class="card mt-3">
-    <h5 class="card-header">@ViewBag.Title</h5>
+    <h5 style="text-align:center;font-size:25px;font-weight:bold; padding-top:20px" class="card-header">@ViewBag.Title</h5>
     <div class="card-body">
         @using (Html.BeginForm())
         {
@@ -24,22 +25,22 @@
 
 
 
-            <div class="wrapper fadeInDown">
+            <div class="wrapper fadeInDown" style="text-align: center;">
                 <div id="formContent">
                     <!-- Tabs Titles -->
                     <!-- Icon -->
                     <div class="fadeIn first">
-                        <img src="~/Images/account (1).png" id="icon" alt="User Icon" />
+                        <img src="~/Images/lg2.png" style="width:150px;height:85px" id="icon" alt="User Icon" />
                     </div>
 
                     <!-- Login Form -->
-                    <form>
-                        <div class="form-group">
+                    <form >
+                        <div class="form-group" >
                             <div class="login">
-                                <div class="Login-name">
+                                <div class="Login-name"style="margin-right: 195px;padding-bottom:10px;padding-top:10px">
                                     @Html.LabelFor(model => model.TenDangNhap)
                                 </div>
-                                <div class="Login-password">
+                                <div class="Login-password"style="width: 300px; margin-left: 614px;">
                                     @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
                                 </div>
                             </div>
@@ -47,18 +48,18 @@
                         </div>
                         <div class="form-group">
                             <div class="login">
-                                <div class="Login-name" style="margin-left: -20px">
+                                <div class="Login-name" style="margin-left: -20px; margin-right: 200px; padding-bottom: 10px; padding-top: 10px ">
                                     @Html.LabelFor(model => model.MatKhau)
                                 </div>
-                                <div class="Login-password">
+                                <div class="Login-password"style="width: 300px; margin-left: 614px; padding-bottom: 10px; padding-top: 10px">
                                     @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
                                 </div>
                             </div>
                             @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
                         </div>
-                        <input type="submit" value="Đăng nhập" class="btn btn-success" /> hoặc @Html.ActionLink("Tạo tài khoản", "DangKy", "Home")
+                        <input  type="submit" value="Đăng nhập" class="btn btn-success" /> hoặc @Html.ActionLink("Tạo tài khoản", "DangKy", "Home")
                         <br />
-                        @Html.ActionLink("Quay về trang chủ", "Index", "Home")
+                       @Html.ActionLink("Quay về trang chủ", "Index", "Home")
                     </form>
 
                     <!-- Remind Passowrd -->

@@ -52,6 +52,11 @@ namespace ShopOnline.Models
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
 
+        [Display(Name = "Xác nhận mật khẩu")]
+        [Compare("MatKhau", ErrorMessage = "Xác nhận mật khẩu không chính xác!")]
+        [DataType(DataType.Password)]
+        public string XacNhanMatKhau { get; set; }
+
         [Display(Name = "Quyền hạn")]
         [Required(ErrorMessage = "Chưa chọn quyền hạn!")]
         public Nullable<bool> Quyen { get; set; }

@@ -162,6 +162,7 @@
     <Compile Include="Models\NhanVien.cs">
       <DependentUpon>ShopOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NhanVienModels.cs" />
     <Compile Include="Models\NhaXuatBan.cs">
       <DependentUpon>ShopOnline.tt</DependentUpon>
     </Compile>
@@ -257,6 +258,9 @@
     <Content Include="Areas\AdminTK\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\AdminTK\Views\Home\ChangePassword.cshtml" />
     <Content Include="Areas\AdminTK\Views\Home\LoginTK.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Search.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />

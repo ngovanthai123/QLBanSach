@@ -2,16 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - Cửa hàng sách</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Cửa hàng sách Online</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 <body>
-    @*<div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:blue;">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#f4e0fc">
             <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                <img src="~/Images/lg2.png" width="150" height="75" class="d-inline-block align-top" alt="" />
+                <img src="~/Images/T-Shirt-2-icon.png" width="30" height="30" class="d-inline-block align-top" alt="" />
+                
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -19,44 +21,69 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Mua nhiều nhất</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "GioHang")">Giỏ hàng</a>
+                        <a class="nav-link" href="#">Sản phẩn bán chạy</a>
                     </li>
                     @if (Session["MaNhanVien"] == null)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Login", "Home")">Đăng nhập</a>
+                            <a class="nav-link" href="@Url.Action("Login", "Home","Areas")">Đăng nhập quản lý</a>
                         </li>
                     }
                     else
                     {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @Session["HoTenNhanVien"].ToString()
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="@Url.Action("MyOrders", "KhachHang")">Đơn hàng của tôi</a>
-                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "KhachHang")">Đổi mật khẩu</a>
-                                <a class="dropdown-item" href="@Url.Action("Logout", "KhachHang")">Đăng xuất</a>
-                            </div>
-                        </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @Session["HoTenNhanVien"].ToString()
+                        @if (Convert.ToInt32(Session["Quyen"]) == 1)
+                        {
+                            <span>(Nhân viên)</span>
+
+                        }
+                        else
+                        {
+                            <span>(Thủ kho)</span>
+                        }
+                    </a>
+                    @if (Convert.ToInt32(Session["Quyen"]) == 1)
+                    {
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="@Url.Action("Index", "KhachHang")">Khách hàng</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "DatHang")">Đặt hàng</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "DatHang_ChiTiet")">Đặt hàng chi tiết</a>
+                         <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("ChangePassword", "Home")">Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="@Url.Action("Logout", "Home")">Đăng xuất</a>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div div class="dropdown-menu" aria-labelledby="navbarDropdown">                    
+                            <a class="dropdown-item" href="@Url.Action("Index", "Sach")">Sách</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "LoaiSach")">Loại sách</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "NhaXuatBan")">Nhà xuất bản</a>                       
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("ChangePassword", "Home")">Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="@Url.Action("Logout", "Home")">Đăng xuất</a>
+                        
+                         </div>
+                    }
+                </li>
                     }
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Bạn muốn tìm gì?" />
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                <form class="form-inline my-2 my-lg-0" action="@Url.Action("Search","Home")" method="post">
+                    <input class="form-control mr-sm-2" type="search" name="TuKhoa" placeholder="Bạn muốn tìm gì?" />
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"> Tìm kiếm <i class="fas fa-search"></i></button>
                 </form>
             </div>
         </nav>
-    </div>*@
-
+    </div>
     <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; Bản quyền @DateTime.Now.Year bởi Nhóm Đồ án - 2.</p>
+
+        <footer class="text-center text-success">
+            <p>&copy; Bản quyền bởi quipro - @DateTime.Now.Date </p>
         </footer>
     </div>
 

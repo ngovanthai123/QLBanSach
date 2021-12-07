@@ -128,7 +128,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AdminTK\AdminTKAreaRegistration.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\DatHangController.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\DatHang_ChiTietController.cs" />
     <Compile Include="Areas\AdminTK\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\KhachHangController.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\LoaiSachController.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\NhaXuatBanController.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\SachController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DatHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\DatHang_ChiTietController.cs" />
@@ -137,10 +143,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSachController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\NhanVienController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaXuatBanController.cs" />
     <Compile Include="Areas\Admin\Controllers\SachController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ThuKhoController.cs" />
+    <Compile Include="Areas\AdminTK\Controllers\ThuKhoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -261,6 +267,36 @@
     <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\ChangePassword.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Search.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang_ChiTiet\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang_ChiTiet\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang_ChiTiet\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang_ChiTiet\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\DatHang_ChiTiet\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\KhachHang\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\KhachHang\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\KhachHang\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\KhachHang\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\KhachHang\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\LoaiSach\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\LoaiSach\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\LoaiSach\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\LoaiSach\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\LoaiSach\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhaXuatBan\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhaXuatBan\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhaXuatBan\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhaXuatBan\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhaXuatBan\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Sach\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Sach\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Sach\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Sach\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\Sach\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -389,11 +425,11 @@
     <Content Include="Areas\Admin\Views\LoaiSach\Details.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSach\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSach\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanVien\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanVien\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhanVien\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhanVien\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhanVien\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhanVien\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\NhanVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Details.cshtml" />
@@ -404,11 +440,6 @@
     <Content Include="Areas\Admin\Views\Sach\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ThuKho\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ThuKho\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ThuKho\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\ThuKho\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ThuKho\Index.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
     <Content Include="Views\Home\DonHangCuaToi.cshtml" />
@@ -417,6 +448,11 @@
     <Content Include="Views\Home\MuaNhieuNhat.cshtml" />
     <Content Include="Views\Home\SanPham.cshtml" />
     <Content Include="Views\Home\XacNhanMuaHang.cshtml" />
+    <Content Include="Areas\AdminTK\Views\ThuKho\Create.cshtml" />
+    <Content Include="Areas\AdminTK\Views\ThuKho\Delete.cshtml" />
+    <Content Include="Areas\AdminTK\Views\ThuKho\Details.cshtml" />
+    <Content Include="Areas\AdminTK\Views\ThuKho\Edit.cshtml" />
+    <Content Include="Areas\AdminTK\Views\ThuKho\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

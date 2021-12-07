@@ -11,12 +11,36 @@ namespace ShopOnline.Controllers
 {
     public class HomeController : Controller
     {
+
         private ShopOnlineEntities db = new ShopOnlineEntities();
-        public ActionResult Index()
+        /* public ActionResult Index()
+         {
+             var t = db.Sach.Where(r => r.SoLuong > 0);
+             return View(t);
+         }*/
+
+        public ActionResult Index(string searchString, string movieGenre)
         {
-            var t = db.Sach.Where(r => r.SoLuong > 0);
-            return View(t);
+            ViewData["CurrentFilter"] = searchString;
+            var GenreLst = new List<string>();
+            var GenreQry = from d in db.LoaiSach
+                           select d.TenLoai;
+            ViewBag.sp = GenreQry;
+            ViewBag.loaisp = movieGenre;
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+            var sanpham = from m in db.Sach
+                          select m;
+
+
+            if (!string.IsNullOrEmpty(movieGenre) && movieGenre != "All")
+            {
+                sanpham = sanpham.Where(x => x.LoaiSach.TenLoai == movieGenre);
+
+            }
+            return View(sanpham);
         }
+
 
         public ActionResult About()
         {
@@ -240,7 +264,8 @@ namespace ShopOnline.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.KhachHang.FirstOrDefault(r => r.TenDangNhap == kh.TenDangNhap);
-                if (check == null)
+                var kt = db.KhachHang.FirstOrDefault(r => r.Email == kh.Email);
+                if (check == null || kt==null)
                 {
                     kh.MatKhau = SHA1.ComputeHash(kh.MatKhau);
                     kh.XacNhanMatKhau = SHA1.ComputeHash(kh.XacNhanMatKhau);
@@ -251,6 +276,7 @@ namespace ShopOnline.Controllers
                 }
                 else
                 {
+                    ViewBag.error = "Email đã trùng";
                     ViewBag.error = "Tên đăng nhập đã tồn tại !!!";
                     return View();
                 }

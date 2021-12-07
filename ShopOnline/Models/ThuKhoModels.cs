@@ -24,7 +24,7 @@ namespace ShopOnline.Models
             Email = n.Email;
         }
 
-        [Display(Name = "Mã khách hàng")]
+        [Display(Name = "Mã Quản lí")]
         public int ID { get; set; }
 
         [Display(Name = "Họ và tên")]

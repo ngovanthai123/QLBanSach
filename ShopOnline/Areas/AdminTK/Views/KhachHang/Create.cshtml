@@ -1,15 +1,16 @@
-﻿@model ShopOnline.Models.ThuKho
+﻿@model ShopOnline.Models.KhachHang
 
 @{
-    ViewBag.Title = "Sửa thủ kho";
+    ViewBag.Title = "Thêm khách hàng";
 }
+
+
 <div class="card mt-3">
     <h5 class="card-header">@ViewBag.Title</h5>
     <div class="card-body">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            @Html.HiddenFor(model => model.ID)
 
             <div class="form-group">
                 @Html.LabelFor(model => model.HoVaTen)
@@ -21,6 +22,7 @@
                 @Html.LabelFor(model => model.DienThoai)
                 @Html.EditorFor(model => model.DienThoai, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+
             </div>
 
             <div class="form-group">
@@ -51,8 +53,9 @@
                 @Html.EditorFor(model => model.XacNhanMatKhau, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.XacNhanMatKhau, "", new { @class = "text-danger" })
             </div>
+
             <div class="form-group mb-0">
-                <input type="submit" value="cập nhật" class="btn btn-success" /> hoặc @Html.ActionLink("Quay về danh sách", "Index")
+                <input type="submit" value="Thêm mới" class="btn btn-success" /> hoặc @Html.ActionLink("Quay về danh sách", "Index")
             </div>
         }
     </div>

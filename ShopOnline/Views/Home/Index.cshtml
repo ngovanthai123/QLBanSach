@@ -35,6 +35,35 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+
+        <select class="custom-select w-25" onchange=" location = '/Home?movieGenre='+this.value;" id="movieGenre" name="movieGenre" style="width: 15% !important; margin-top: 40px; margin-left: 20px;background-color:gainsboro">
+            <option value="All">Chọn tất cả</option>
+            @foreach (var item in ViewBag.sp)
+            {
+                if (ViewBag.loaisp == item)
+                {
+                    <option value="@item" selected>
+                        @item
+                    </option>
+                }
+                else
+                {
+                    <option value="@item">
+                        @item
+                    </option>
+                }
+
+
+            }
+
+        </select>
+    }
+</div>
+
 <div class="card mt-3">
     <h5 class="card-header" style="background-color: #f4e0fc">@ViewBag.Title</h5>
     <div class="card-body">

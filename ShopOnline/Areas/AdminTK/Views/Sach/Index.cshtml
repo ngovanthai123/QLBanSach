@@ -1,7 +1,7 @@
-﻿@model IEnumerable<ShopOnline.Models.ThuKho>
+﻿@model IEnumerable<ShopOnline.Models.Sach>
 
 @{
-    ViewBag.Title = "Thủ kho";
+    ViewBag.Title = "Sách";
 }
 
 <div class="card mt-3">
@@ -12,22 +12,23 @@
             <tr>
                 <th width="5%">#</th>
                 <th>
-                    @Html.DisplayNameFor(model => model.HoVaTen)
+                    @Html.DisplayNameFor(model => model.TenSach)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DienThoai)
+                    @Html.DisplayNameFor(model => model.DonGia)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DiaChi)
+                    @Html.DisplayNameFor(model => model.SoLuong)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+                    @Html.DisplayNameFor(model => model.HinhAnhBia)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.LoaiSach.TenLoai)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.TenDangNhap)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MatKhau)
+                    @Html.DisplayNameFor(model => model.NhaXuatBan.TenNhaXuatBan)
                 </th>
                 <th width="10%"></th>
             </tr>
@@ -37,22 +38,23 @@
                 <tr>
                     <td>@stt</td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HoVaTen)
+                        @Html.DisplayFor(modelItem => item.TenSach)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DienThoai)
+                        @Html.DisplayFor(modelItem => item.DonGia)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DiaChi)
+                        @Html.DisplayFor(modelItem => item.SoLuong)
+                    </td>
+                    <td class="text-center">
+                        <img src="~/@item.HinhAnhBia" width="60" class="img-thumbnail" />
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiSach.TenLoai)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TenDangNhap)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MatKhau)
+                        @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNhaXuatBan)
                     </td>
                     <td class="text-center">
                         @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |

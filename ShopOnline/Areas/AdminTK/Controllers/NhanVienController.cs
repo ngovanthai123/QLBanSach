@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using ShopOnline.Libs;
 using ShopOnline.Models;
 
-namespace ShopOnline.Areas.Admin.Controllers
+namespace ShopOnline.Areas.AdminTK.Controllers
 {
     public class NhanVienController : Controller
     {

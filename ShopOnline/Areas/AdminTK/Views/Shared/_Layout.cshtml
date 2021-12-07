@@ -33,12 +33,23 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @Session["HoTenThuKho"].ToString()
+                                <span>(Quản lí)</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="@Url.Action("Index", "Sach")">Sách</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "LoaiSach")">Loại sách</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="@Url.Action("Index", "NhaXuatBan")">Nhà xuất bản</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "NhanVien")">Nhân viên</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "KhachHang")">Khách hàng</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="@Url.Action("Index", "ThuKho")">Quản lí</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="@Url.Action("Index", "DatHang")">Đặt hàng</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "DatHang_ChiTiet")">Đặt hàng chi tiết</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="@Url.Action("ChangePassword", "Home")">Đổi mật khẩu</a>
+                                <a class="dropdown-item" href="@Url.Action("Logout", "Home")">Đăng xuất</a>
                             </div>
                         </li>
                     }

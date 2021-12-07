@@ -18,6 +18,14 @@ namespace ShopOnline.Areas.AdminTK.Controllers
 			var t = db.Sach.Where(r => r.SoLuong > 0);
 			return View(t);
 		}
+		public ActionResult Logout()
+		{
+			// Xóa SESSION
+			Session.RemoveAll();
+
+			// Quay về trang chủ
+			return RedirectToAction("Index", "Home");
+		}
 
 		// GET: Home/Login
 		public ActionResult LoginTK()

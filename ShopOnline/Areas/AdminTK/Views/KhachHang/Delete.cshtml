@@ -1,7 +1,7 @@
-﻿@model ShopOnline.Models.ThuKho
+﻿@model ShopOnline.Models.KhachHang
 
 @{
-    ViewBag.Title = "Xóa thủ kho";
+    ViewBag.Title = "Xóa khách hàng";
 }
 
 <div class="card mt-3">
@@ -12,7 +12,7 @@
             @Html.AntiForgeryToken()
 
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Bạn có muốn xóa thủ kho <strong>@Model.HoVaTen</strong> không?
+                Bạn có muốn xóa khách hàng <strong>@Model.HoVaTen</strong> không?
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

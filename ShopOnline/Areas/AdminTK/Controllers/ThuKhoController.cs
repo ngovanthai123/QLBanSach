@@ -1,11 +1,15 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using ShopOnline.Libs;
 using ShopOnline.Models;
 
-namespace ShopOnline.Areas.Admin.Controllers
+namespace ShopOnline.Areas.AdminTK.Controllers
 {
     public class ThuKhoController : Controller
     {
@@ -17,26 +21,33 @@ namespace ShopOnline.Areas.Admin.Controllers
             return View(db.ThuKho.ToList());
         }
 
-        // GET: THuKHo/Create
+        // GET: ThuKho/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ThuKho thuKho = db.ThuKho.Find(id);
+            if (thuKho == null)
+            {
+                return HttpNotFound();
+            }
+            return View(thuKho);
+        }
+
+        // GET: ThuKho/Create
         public ActionResult Create()
         {
             return View();
         }
-        // GET: THụKHo/Logout
-        public ActionResult Logout()
-        {
-            // Xóa SESSION
-            Session.RemoveAll();
 
-            // Quay về trang chủ
-            return RedirectToAction("Index", "Home");
-        }
-        // POST: NhanVien/Create
+        // POST: ThuKho/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,Email,TenDangNhap,MatKhau,XacNhanMatKhau")] ThuKho thuKho)
+        public ActionResult Create([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,Email,TenDangNhap,MatKhau")] ThuKho thuKho)
         {
             if (ModelState.IsValid)
             {
@@ -70,35 +81,13 @@ namespace ShopOnline.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,Email,TenDangNhap,MatKhau,XacNhanMatKhau")] ThuKhoEdit thuKho)
+        public ActionResult Edit([Bind(Include = "ID,HoVaTen,DienThoai,DiaChi,Email,TenDangNhap,MatKhau")] ThuKho thuKho)
         {
             if (ModelState.IsValid)
             {
-                ThuKho n = db.ThuKho.Find(thuKho.ID);
-
-                // Giữ nguyên mật khẩu cũ
-                if (thuKho.MatKhau == null)
-                {
-                    n.ID = thuKho.ID;
-                    n.HoVaTen = thuKho.HoVaTen;
-                    n.DienThoai = thuKho.DienThoai;
-                    n.DiaChi = thuKho.DiaChi;
-                    n.Email = thuKho.Email;
-                    n.TenDangNhap = thuKho.TenDangNhap;
-                    n.XacNhanMatKhau = n.MatKhau;
-                }
-                else // Cập nhật mật khẩu mới
-                {
-                    n.ID = thuKho.ID;
-                    n.HoVaTen = thuKho.HoVaTen;
-                    n.DienThoai = thuKho.DienThoai;
-                    n.DiaChi = thuKho.DiaChi;
-                    n.Email = thuKho.Email;
-                    n.TenDangNhap = thuKho.TenDangNhap;
-                    n.MatKhau = SHA1.ComputeHash(thuKho.MatKhau);
-                    n.XacNhanMatKhau = SHA1.ComputeHash(thuKho.XacNhanMatKhau);
-                }
-                db.Entry(n).State = EntityState.Modified;
+                thuKho.MatKhau = SHA1.ComputeHash(thuKho.MatKhau);
+                thuKho.XacNhanMatKhau = SHA1.ComputeHash(thuKho.XacNhanMatKhau);
+                db.Entry(thuKho).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -125,17 +114,9 @@ namespace ShopOnline.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DatHang datHang = db.DatHang.Find(id);
-            if (datHang != null)
-            {
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                NhanVien nhanVien = db.NhanVien.Find(id);
-                db.NhanVien.Remove(nhanVien);
-                db.SaveChanges();
-            }
+            ThuKho thuKho = db.ThuKho.Find(id);
+            db.ThuKho.Remove(thuKho);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

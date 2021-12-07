@@ -126,3 +126,37 @@ E:\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.csproj.CoreCompileInputs.cac
 E:\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.csproj.CopyComplete
 E:\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.dll
 E:\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.pdb
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\ShopOnline.dll.config
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\ShopOnline.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\ShopOnline.pdb
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\Antlr3.Runtime.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\EntityFramework.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\EntityFramework.SqlServer.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\Microsoft.Web.Infrastructure.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\Newtonsoft.Json.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Helpers.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Mvc.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Optimization.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Razor.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.WebPages.Deployment.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.WebPages.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.WebPages.Razor.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\WebGrease.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\EntityFramework.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\EntityFramework.SqlServer.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\Newtonsoft.Json.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Helpers.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Mvc.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Optimization.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.Razor.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.WebPages.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.WebPages.Deployment.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\System.Web.WebPages.Razor.xml
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\bin\Antlr3.Runtime.pdb
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.csproj.AssemblyReference.cache
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.csproj.CoreCompileInputs.cache
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.csproj.CopyComplete
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.dll
+D:\New folder\DOAN_2\QLBanSach\ShopOnline\obj\Debug\ShopOnline.pdb
